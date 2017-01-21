@@ -1,12 +1,26 @@
 <div class="container-fluid">
-    <center><button type="button" class="btn btn-primary" style="margin-top:15%">Add</button></center>
-    <form class="form-inline">
+    <center><button type="button" id="add" class="btn btn-primary button1" style="margin-top:7.5%">Add</button></center>
+    <form class="form-inline" style="margin-top: 2%">
         <div class="form-group">
-            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style="margin-top:10%">Category<span class="caret"></span></button>
-            <input type="text" class="form-control" id="priceInput" placeholder="Budget limit (E.g. $100)">
+            <div class="row">
+                <div class="col-xs-6">            
+                    <div class="dropdown">
+                        <button type="button" class="btn btn-primary dropdown-toggle button2" data-toggle="dropdown" style="width: 100%;"><span>Category</span><span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Food</a></li>
+                            <li><a href="#">Clothes</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Other</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <input type="text" class="form-control" id="priceInput" placeholder="Budget limit (E.g. $100)">
+                </div>
+            </div>
         </div>
     </form>
     <h1 style="margin-top: 10%" id="total">Total:</h1><span style="float:right;">$0.00</span>
-    <center><button type="button" class="btn btn-default" style="margin-top:5%"> NEXT </button></center>
+    <center><button type="button" class="btn btn-default" style="margin-top:10%"> NEXT </button></center>
     
 </div>
