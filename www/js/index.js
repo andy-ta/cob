@@ -53,12 +53,17 @@ var app = {
     displayView: function(hash, init) {
         if(!init) {
             //Kill all events
+            $('.dropdown-menu li').off();
+            $('#add').off();
             //End kill all events
         }
 
         switch(hash) {
             case "main":
                 view = new MainView();
+                break;
+            case "budgetlist":
+                view = new BudgetView();
                 break;
         }
         $('#content').empty();

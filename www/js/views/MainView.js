@@ -49,6 +49,10 @@ var MainView = function(){
             dropdown();
             $(this).css("background-color", "#FFCC33");
         });
+        
+        $("#next").click(function(){
+           app.displayView("budgetlist", false);
+        });
     };
     
     this.completeProcess = function() {
