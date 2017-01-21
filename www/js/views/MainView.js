@@ -30,7 +30,7 @@ var MainView = function(){
                                 <div class="row">\n\
                                     <div class="col-xs-6">\n\
                                         <div class="dropdown">\n\
-                                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style="width: 100%;"><span>Category</span><span class="caret"></span></button>\n\
+                                            <button type="button" class="btn btn-primary dropdown-toggle button2" data-toggle="dropdown" style="width: 100%;"><span>Category</span><span class="caret"></span></button>\n\
                                             <ul class="dropdown-menu">\n\
                                                 <li><a href="#">Food</a></li>\n\
                                                 <li><a href="#">Clothes</a></li>\n\
@@ -47,6 +47,7 @@ var MainView = function(){
             
             $('.form-inline:last').after(form);
             dropdown();
+            $(this).css("background-color", "#FFCC33");
         });
     };
     

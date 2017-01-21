@@ -115,9 +115,36 @@ h1 {
 }
 
 #theNavbar {
-    background-color: red;
+    background: linear-gradient(#688B9A,#47697E);
+    border-color: transparent;
+}
+
+.navbar-header {
+    font-family: "Arial";
+    text-align: center;
+    color:#FFFFFF;
 }
 
 #total {
     text-align: left;
+}
+
+.button1 {
+    width:100%;
+    background-color:#FFCC33;
+    color:white;
+}
+
+.button2 {
+    background-color: #688B9A;
+    color:white;
+}
+
+.button3 {
+    background-color: #FFCC33;
+    color:white;
+}
+
+#total {
+    font-size:100%;
 }
