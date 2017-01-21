@@ -6,6 +6,9 @@ var MainView = function(){
     };
     
     this.setListeners = function() {
+        $('#add').click(function(){
+            
+        });
     };
     
     this.completeProcess = function() {

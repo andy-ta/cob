@@ -117,3 +117,7 @@ h1 {
 #theNavbar {
     background-color: red;
 }
+
+#total {
+    text-align: left;
+}
