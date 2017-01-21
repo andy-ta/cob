@@ -133,16 +133,17 @@ h1 {
     width:100%;
     background-color:#FFCC33;
     color:white;
+    border-color: transparent;
 }
 
 .button2 {
     background-color: #688B9A;
     color:white;
+    border-color: transparent;
 }
 
 .button3 {
-    background-color: #FFCC33;
-    color:white;
+    border-color: transparent;
 }
 
 #total {
