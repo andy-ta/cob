@@ -84,7 +84,7 @@ var MainView = function(){
                     if(budgets === null) //if no storage yet
                         budgets = [];
 
-                    // does not exist or did not input anything.
+                    // does not exist or did not input anything
                     if(budget.category !== undefined && budget.budget !== undefined && 
                        budget.category !== "Category" && budget.budget !== "")
                         budgets.push(budget);
