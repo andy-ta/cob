@@ -7,8 +7,15 @@ var MainView = function(){
     
     this.setListeners = function() {
         var dropdown = function() {
+            $('.row div:last-child input').focusout(function(){
+                var sum = Number($("#totalAmount").text().substring(1));
+
+                $("#totalAmount").text("$" + (sum + Number($(this).val())).toFixed(2));
+            });
+        
             $('.dropdown-menu li').click(function(e){
                 e.preventDefault();
+                $('.dropdown-menu li').unbind("click");
                 if($(this).children("a").text() !== "Other") {
                     $(".dropdown-menu li").removeClass("active");
                     $(this).addClass("active");
@@ -34,12 +41,14 @@ var MainView = function(){
                                             <ul class="dropdown-menu">\n\
                                                 <li><a href="#">Food</a></li>\n\
                                                 <li><a href="#">Clothes</a></li>\n\
-                                                <li class="divider"></li><li><a id="other" href="#">Other</a></li>\n\
+                                                <li><a href="#">Essentials</a></li>\n\
+                                                <li><a href="#">Entertainment</a></li>\n\
+                                                <li class="divider"></li><li><a href="#">Other</a></li>\n\
                                             </ul>\n\
                                         </div>\n\
                                     </div>\n\
                                     <div class="col-xs-6">\n\
-                                        <input type="text" class="form-control" id="priceInput" placeholder="Budget limit (E.g. $100)">\n\
+                                        <input type="number" class="form-control" id="priceInput" placeholder="Budget limit (E.g. $100)">\n\
                                     </div>\n\
                                 </div>\n\
                             </div>\n\
@@ -51,11 +60,37 @@ var MainView = function(){
         });
         
         $("#next").click(function(){
-           app.displayView("budgetlist", false);
+            var budgets = JSON.parse(localStorage.getItem("budgets"));
+            $(".row").each(function(){
+                // don't want that total row
+                if($(this).children('hr').length === 0) {
+                    var category = $(this).find('button span:first-child').text();
+                    if(category === "") // if it's 'other'
+                        category = $(this).find('input:first').val();
+
+                    var budgetMoney = $(this).children('div').eq(1).children('input').val();
+
+                    var budget = {
+                        category: category,
+                        budget: budgetMoney
+                    };
+
+                    if(budgets === null) //if no storage yet
+                        budgets = [];
+
+                    // does not exist or did not input anything
+                    if(budget.category !== undefined && budget.budget !== undefined && 
+                       budget.category !== "Category" && budget.budget !== "")
+                        budgets.push(budget);
+                }
+            });
+            localStorage.setItem("budgets", JSON.stringify(budgets));
+            app.displayView("budgetlist", false);
         });
     };
     
     this.completeProcess = function() {
+        localStorage.clear();
     };
     
     this.initialize=function() {

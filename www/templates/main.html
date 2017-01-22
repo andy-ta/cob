@@ -9,13 +9,15 @@
                         <ul class="dropdown-menu">
                             <li><a href="#">Food</a></li>
                             <li><a href="#">Clothes</a></li>
+                            <li><a href="#">Essentials</a></li>
+                            <li><a href="#">Entertainment</a></li>
                             <li class="divider"></li>
                             <li><a href="#">Other</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-xs-6">
-                    <input type="text" class="form-control" id="priceInput" placeholder="Budget limit (E.g. $100)">
+                    <input type="number" class="form-control" id="priceInput" placeholder="Budget limit (E.g. $100)">
                 </div>
             </div>
         </div>
@@ -23,7 +25,7 @@
     <div class="row">
         <hr>
         <div class="col-xs-10"><h1 id="total">Total:</h1></div>
-        <div class="col-xs-2"><span>$0.00</span></div>
+        <div class="col-xs-2"><span id="totalAmount">$0.00</span></div>
     </div>
     <center><button id="next" type="button" class="btn btn-default button3" style="margin-top:10%"> NEXT </button></center>
     
