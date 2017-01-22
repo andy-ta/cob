@@ -41,7 +41,6 @@ body {
     height:100%;
     margin:0px;
     padding:0px;
-    text-transform:uppercase;
     width:100%;
 }
 
@@ -146,6 +145,50 @@ h1 {
     border-color: transparent;
 }
 
-#total {
-    font-size:100%;
+.total {
+    font-size:120%;
+    text-transform:uppercase;
+    text-align:left;
+}
+
+.price {
+    font-size:120%;
+    text-transform:lowercase;
+    text-align:left;
+}
+
+#rowitem1 {
+    margin-top: 15%;
+}
+
+.rowitem {
+    margin-top: 5%;
+}
+
+.sign:before {
+    content: "$";
+}
+
+.dashed {
+    border-top:1px dashed;
+}
+
+#totalhr {
+    border-top:1px solid;
+    border-color:black;
+}
+
+#bottomNavbar {
+    background: linear-gradient(#DBDBDB,#C6C6C6);
+    border-color:transparent;
+}
+
+.glyphicon {
+    font-size:350%;
+    border-style: solid;
+    border-color: #666666;
+    padding: 1.5%;
+    padding-bottom:2%;  
+    border-radius: 50%;
+    color: #666666;
 }

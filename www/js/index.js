@@ -65,6 +65,9 @@ var app = {
             case "budgetlist":
                 view = new BudgetView();
                 break;
+            case "itemlist":
+                view = new ItemView();
+                break;
         }
         $('#content').empty();
         view.initialize();
