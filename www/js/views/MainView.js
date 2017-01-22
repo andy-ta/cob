@@ -7,26 +7,31 @@ var MainView = function(){
     
     this.setListeners = function() {
         var dropdown = function() {
+            $('.dropdown-menu li').off();
+            $('.row div:last-child input').off();
+            
             $('.row div:last-child input').focusout(function(){
-                var sum = Number($("#totalAmount").text().substring(1));
-
-                $("#totalAmount").text("$" + (sum + Number($(this).val())).toFixed(2));
+                var somme = 0;
+                $('.actualPrice').each(function(){
+                    somme = somme + Number($(this).val());
+                });
+                $("#totalAmount").text("$" + somme.toFixed(2));
             });
         
             $('.dropdown-menu li').click(function(e){
                 e.preventDefault();
-                $('.dropdown-menu li').unbind("click");
                 if($(this).children("a").text() !== "Other") {
                     $(".dropdown-menu li").removeClass("active");
                     $(this).addClass("active");
                     $(this).parents().eq(2).find("span:first").remove();
                     $(this).parents().eq(2).find("button:first").prepend("<span>" + $(this).children("a").text() + "</span>");
+                    dropdown();
                 }
                 else {
                     $(this).parents().eq(1).replaceWith("<input type='text' class='form-control' placeholder='Other'></input>");
                 }
             });
-        }
+        };
         
         dropdown();
         
@@ -48,11 +53,11 @@ var MainView = function(){
                                         </div>\n\
                                     </div>\n\
                                     <div class="col-xs-6">\n\
-                                        <input type="number" class="form-control" id="priceInput" placeholder="Budget limit (E.g. $100)">\n\
+                                        <input type="number" class="form-control actualPrice" id="priceInput" placeholder="Budget limit (E.g. $100)">\n\
                                     </div>\n\
                                 </div>\n\
                             </div>\n\
-                        </form>'
+                        </form>';
             
             $('.form-inline:last').after(form);
             dropdown();
@@ -60,19 +65,20 @@ var MainView = function(){
         });
         
         $("#next").click(function(){
-            var budgets = JSON.parse(localStorage.getItem("budgets"));
             $(".row").each(function(){
+                var budgets = JSON.parse(localStorage.getItem("budgets"));
                 // don't want that total row
                 if($(this).children('hr').length === 0) {
                     var category = $(this).find('button span:first-child').text();
                     if(category === "") // if it's 'other'
                         category = $(this).find('input:first').val();
 
-                    var budgetMoney = $(this).children('div').eq(1).children('input').val();
-
+                    var budgetMoney = $(this).children('div').eq(1).find('input').val();
+                    
                     var budget = {
                         category: category,
-                        budget: budgetMoney
+                        budget: budgetMoney,
+                        items: []
                     };
 
                     if(budgets === null) //if no storage yet
@@ -82,9 +88,9 @@ var MainView = function(){
                     if(budget.category !== undefined && budget.budget !== undefined && 
                        budget.category !== "Category" && budget.budget !== "")
                         budgets.push(budget);
+                    localStorage.setItem("budgets", JSON.stringify(budgets));
                 }
             });
-            localStorage.setItem("budgets", JSON.stringify(budgets));
             app.displayView("budgetlist", false);
         });
     };
