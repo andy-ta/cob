@@ -1,3 +1,32 @@
-<div class="container">
-    <p>Hello World!</p>
+<div class="container-fluid">
+    <center><button type="button" id="add" class="btn btn-primary button1" style="margin-top:15%">Add</button></center>
+    <form class="form-inline" style="margin-top: 2%">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-xs-6">            
+                    <div class="dropdown">
+                        <button type="button" class="btn btn-primary dropdown-toggle button2" data-toggle="dropdown" style="width: 100%;"><span>Category</span><span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Food</a></li>
+                            <li><a href="#">Clothes</a></li>
+                            <li><a href="#">Essentials</a></li>
+                            <li><a href="#">Entertainment</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Other</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <input type="number" class="form-control actualPrice" id="priceInput" placeholder="Budget limit (E.g. $100)">
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="row">
+        <hr>
+        <div class="col-xs-10"><h1 id="total">Budget: </h1></div>
+        <div class="col-xs-2"><span id="totalAmount">$0.00</span></div>
+    </div>
+    <center><button id="next" type="button" class="btn btn-default button3" style="margin-top:10%"> NEXT </button></center>
+    
 </div>
