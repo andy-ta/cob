@@ -48,14 +48,28 @@ var app = {
      * Function that manages the application's view
      * @param {String} hash The hash of the page to be displayed
      * @param {Boolean} init Whether initiating the app or just changing view
+     * @param {Number} # of the budget (optional)
      * @returns {undefined}
      */
-    displayView: function(hash, init) {
+    displayView: function(hash, init, number) {
         if(!init) {
             //Kill all events
-            $('.dropdown-menu li').off();
-            $('#add').off();
+            $("#page").children().off();
+            if(hash !== "camera")
+                $("#theNavbar").css('background', 'linear-gradient(#688B9A,#47697E)');
             //End kill all events
+        }
+        else {
+            console.log("HI");
+            $("#settings").click(function(){
+                app.displayView('settings', false);
+            });
+            $("#settings").bind("touchstart",function(){
+                $(this).css('color', 'white');
+            });
+            $("#settings").bind("touchend", function(){
+                $(this).css('color', 'black');
+            });
         }
 
         switch(hash) {
@@ -66,7 +80,26 @@ var app = {
                 view = new BudgetView();
                 break;
             case "itemlist":
-                view = new ItemView();
+                if(number !== undefined)
+                    view = new ItemView(number);
+                else
+                    view = new ItemView(-1);
+                break;
+            case "camera":
+                if(number !== undefined)
+                    view = new CameraView(number);
+                else
+                    view = new CameraView(-1);
+                break;
+            case "settings":
+                view = new SettingsView();
+                $("#settings").off();
+                $("#settings").click(function(){
+                    app.displayView('budgetlist', false);
+                    $("#settings").click(function(){
+                        app.displayView('settings', false);
+                    });
+                });
                 break;
         }
         $('#content').empty();

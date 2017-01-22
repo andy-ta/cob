@@ -20,6 +20,10 @@
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
 
+html {
+    height: 100%;
+}
+
 body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
@@ -38,11 +42,12 @@ body {
     background-attachment:fixed;
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
     font-size:12px;
-    height:100%;
-    margin:0px;
     padding:0px;
-    text-transform:uppercase;
     width:100%;
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 /* Portrait layout (default) */
@@ -115,5 +120,133 @@ h1 {
 }
 
 #theNavbar {
+    background: linear-gradient(#688B9A,#47697E);
+    border-color: transparent;
+}
+
+.navbar-header {
+    font-family: "Arial";
+    text-align: center;
+    color:#FFFFFF;
+}
+
+#total {
+    text-align: left;
+}
+
+.button1 {
+    width:100%;
+    background-color:#FFCC33;
+    color:white;
+    border-color: transparent;
+}
+
+.button2 {
+    background-color: #688B9A;
+    color:white;
+    border-color: transparent;
+}
+
+.button3 {
+    border-color: transparent;
+}
+
+.total {
+    font-size:120%;
+    text-transform:uppercase;
+    text-align:left;
+}
+
+.price {
+    font-size:120%;
+    text-transform:lowercase;
+    text-align:left;
+}
+
+#rowitem1 {
+    margin-top: 15%;
+}
+
+.rowitem {
+    margin-top: 5%;
+}
+
+.sign:before {
+    content: "$";
+}
+
+.dashed {
+    border-top:1px dashed;
+}
+
+#totalhr {
+    border-top:1px solid;
+    border-color:black;
+}
+
+#bottomNavbar {
+    background: linear-gradient(#DBDBDB,#C6C6C6);
+    border-color:transparent;
+}
+
+.glyphicon {
+    font-size:350%;
+    border-style: solid;
+    border-color: #666666;
+    padding: 1.5%;
+    padding-bottom:2%;  
+    border-radius: 50%;
+    color: #666666;
+}
+
+.settinglist {
+    margin-top: 15%;
+}
+
+#demo {
+    text-align:justify;
+}
+
+.btncredit {
+    background-color: #ffdf80;
+    color: white;
+}
+
+.btnabout {
+    background-color: #ffcc33;
+    color: white;
+}
+
+.btnreset {
     background-color: red;
+    color: white;
+}
+
+.semibackground {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.buttonbudget {
+    color:white;
+}
+
+.loader {
+  margin-left: 35%;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #688B9A;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

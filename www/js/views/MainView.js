@@ -80,14 +80,16 @@ var MainView = function(){
                         budget: budgetMoney,
                         items: []
                     };
-
+                    console.log(budgets);
                     if(budgets === null) //if no storage yet
                         budgets = [];
 
                     // does not exist or did not input anything
                     if(budget.category !== undefined && budget.budget !== undefined && 
-                       budget.category !== "Category" && budget.budget !== "")
+                       budget.category !== "Category" && budget.budget !== "") {
+                        budget.budget = Number(budget.budget).toFixed(2);
                         budgets.push(budget);
+                    }
                     localStorage.setItem("budgets", JSON.stringify(budgets));
                 }
             });
@@ -96,7 +98,6 @@ var MainView = function(){
     };
     
     this.completeProcess = function() {
-        localStorage.clear();
     };
     
     this.initialize=function() {
@@ -106,12 +107,3 @@ var MainView = function(){
         this.completeProcess();
     };  
 };
-
-function alert(message){
-    navigator.notification.alert(
-        message,  // message
-        undefined,         // callback
-        "Message",            // title
-        'Done'                  // buttonName
-    );
-}

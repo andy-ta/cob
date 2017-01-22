@@ -16,7 +16,12 @@
     <allow-intent href="sms:*"/>
     <allow-intent href="mailto:*"/>
     <allow-intent href="geo:*"/>
+    <icon src="logo.png" />
     <platform name="android">
+	    <splash src="bluebagsplash.png" density="land-hdpi"/>
+	    <splash src="bluebagsplash.png" density="land-ldpi"/>
+	    <splash src="bluebagsplash.png" density="land-mdpi"/>
+	    <splash src="bluebagsplash.png" density="land-xhdpi"/>
         <allow-intent href="market:*"/>
     </platform>
     <platform name="ios">

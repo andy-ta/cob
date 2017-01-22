@@ -18,5 +18,18 @@ var utils = {
             }
         });
         return el;
+    },
+    alert: function(message) {
+        if(navigator.notification !== undefined) {
+            navigator.notification.alert(
+                message,  // message
+                undefined,         // callback
+                "Message",            // title
+                'Done'                  // buttonName
+            );
+        }
+        else {
+            alert(message);
+        }
     }
 };
